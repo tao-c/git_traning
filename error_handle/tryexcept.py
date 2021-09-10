@@ -10,6 +10,11 @@ def divide_vals(numerator, denominator):
     # try to return the fraction but if the denominator is zero
     # catch the error and return a string saying: 
     # "denominator cannot be zero"
+    try:
+        fraction_val = numerator/denominator
+        return fraction_val
+    except ZeroDivisionError:
+        return "denominator cannot be zero"
 
 
 def num_words(text):
@@ -22,3 +27,14 @@ def num_words(text):
     '''
     # try to split based on spaces and return num of words
     # but if text isnt a string return "text argument must be a string"
+    try:
+        num_words = len(text.split())
+        return num_words
+    except AttributeError:
+        return "text argument must be a string"
+
+
+print(divide_vals(20,4))
+print(divide_vals(20,0))
+print(num_words('Hello world!'))
+print(num_words(10))
